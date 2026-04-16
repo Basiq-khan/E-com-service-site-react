@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceAds from "../assets/service_ads.png"
 import serviceSeo from "../assets/service_seo.png"
 import { FAQ } from "../components/FAQ"
-import { PenTool, Search, Rocket, Globe, FileText, CheckCircle, Zap, Shield, BarChart, DollarSign, ArrowRight } from "lucide-react"
+import { Search, Globe, Zap, Shield, ArrowRight } from "lucide-react"
 
 export function SEOContentWriting() {
   return (

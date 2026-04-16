@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceSeo from "../assets/service_seo.png"
 import serviceAds from "../assets/service_ads.png"
 import { FAQ } from "../components/FAQ"
-import { Search, Database, TrendingUp, DollarSign, Target, BarChart3, Rocket, Zap, Microscope, PieChart, ArrowRight } from "lucide-react"
+import { DollarSign, Target, BarChart3, Rocket, ArrowRight } from "lucide-react"
 
 export function ProductHunting() {
   return (

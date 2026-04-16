@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceSeo from "../assets/service_seo.png"
 import serviceAds from "../assets/service_ads.png"
 import { FAQ } from "../components/FAQ"
-import { Truck, Box, PackageCheck, Repeat, Globe, Clock, Shield, BarChart, DollarSign, Package, CheckCircle2, ArrowRight } from "lucide-react"
+import { Globe, Clock, BarChart, DollarSign, ArrowRight } from "lucide-react"
 
 export function OrderFulfillment() {
   return (

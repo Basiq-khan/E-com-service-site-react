@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceAds from "../assets/service_ads.png"
 import serviceSeo from "../assets/service_seo.png"
 import { FAQ } from "../components/FAQ"
-import { Zap, Edit3, Image, BarChart3, Search, Eye, Sparkles, MessageSquare, Target, Rocket, ArrowRight } from "lucide-react"
+import { Search, Eye, Sparkles, MessageSquare, ArrowRight } from "lucide-react"
 
 export function ProductListingOptimization() {
   return (

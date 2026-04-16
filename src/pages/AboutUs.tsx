@@ -5,7 +5,7 @@ import { Testimonials } from "../components/Testimonials"
 import { FAQ } from "../components/FAQ"
 import { Button } from "../components/ui/button"
 import { Link } from "react-router-dom"
-import { Users, Target, ShieldCheck, ArrowRight } from "lucide-react"
+import { Target, ShieldCheck, ArrowRight } from "lucide-react"
 
 export function AboutUs() {
   return (

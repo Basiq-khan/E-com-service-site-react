@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceAds from "../assets/service_ads.png"
 import serviceSeo from "../assets/service_seo.png"
 import { FAQ } from "../components/FAQ"
-import { Layout, CheckCircle2, ShieldCheck, Zap, Globe, BarChart3, Rocket, CreditCard, ArrowRight } from "lucide-react"
+import { ShieldCheck, Zap, Globe, BarChart3, ArrowRight } from "lucide-react"
 
 export function AccountStoreSetup() {
   return (

@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 import { Button } from "../components/ui/button"
 import { Input } from "../components/ui/input"
 import { Textarea } from "../components/ui/Textarea"
-import { Phone, Mail, MapPin, Send, ArrowRight } from "lucide-react"
+import { Phone, Mail, MapPin, Send } from "lucide-react"
 
 export function ContactPage() {
   return (

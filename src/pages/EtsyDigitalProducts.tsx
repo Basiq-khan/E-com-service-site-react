@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import serviceSeo from "../assets/service_seo.png"
 import serviceAds from "../assets/service_ads.png"
 import { FAQ } from "../components/FAQ"
-import { Layout, Globe, DollarSign, PenTool, Sparkles, TrendingUp, ShieldCheck, ShoppingBag, Zap, CreditCard, ArrowRight } from "lucide-react"
+import { Sparkles, TrendingUp, ShieldCheck, ShoppingBag, ArrowRight } from "lucide-react"
 
 export function EtsyDigitalProducts() {
   return (
