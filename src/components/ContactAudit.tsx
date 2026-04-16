@@ -11,7 +11,7 @@ export function ContactAudit() {
               <p className="text-gray-600 text-xl max-w-lg">
                 Join 500+ successful brands and transform your Amazon presence today.
               </p>
-              <Button size="lg" className="bg-[#FE502D] hover:bg-[#75221D] text-white px-10 h-16 rounded-[5px] font-bold shadow-xl translate-y-0 hover:-translate-y-1 transition-all">
+              <Button size="lg" className="w-full sm:w-auto bg-[#FE502D] hover:bg-[#75221D] text-white px-10 h-16 rounded-[5px] font-bold shadow-xl translate-y-0 hover:-translate-y-1 transition-all">
                 Claim Your Free Audit
               </Button>
            </div>

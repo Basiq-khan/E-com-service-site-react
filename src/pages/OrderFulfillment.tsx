@@ -37,9 +37,9 @@ export function OrderFulfillment() {
              transition={{ delay: 0.5 }}
              className="mt-12"
            >
-             <Link to="/contact">
-               <Button size="lg" className="bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-16 h-20 rounded-[5px] text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
-                 Manage Operations <ArrowRight className="ml-4 w-8 h-8" />
+             <Link to="/contact" className="inline-block w-full sm:w-auto">
+               <Button size="lg" className="w-full sm:w-auto bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-8 md:px-16 h-16 md:h-20 rounded-[5px] text-xl md:text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
+                 Manage Operations <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
                </Button>
              </Link>
            </motion.div>
@@ -167,9 +167,9 @@ export function OrderFulfillment() {
            </div>
 
            <div className="text-center">
-             <Link to="/contact">
-                <Button className="bg-[#75221D] text-white hover:bg-[#FE502D] h-20 px-16 rounded-[5px] text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
-                  Optimize My Shipping <ArrowRight className="ml-4 w-8 h-8" />
+             <Link to="/contact" className="inline-block w-full sm:w-auto">
+                <Button className="w-full sm:w-auto bg-[#75221D] text-white hover:bg-[#FE502D] h-16 md:h-20 px-8 md:px-16 rounded-[5px] text-xl md:text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
+                  Optimize My Shipping <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
                 </Button>
              </Link>
            </div>

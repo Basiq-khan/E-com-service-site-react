@@ -75,10 +75,10 @@ export function Hero() {
             transition={{ delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <Button size="lg" className="h-16 px-12 bg-[#FE502D] hover:bg-[#75221D] text-white rounded-[5px] text-lg font-black transition-all group shadow-xl shadow-[#FE502D]/20">
+            <Button size="lg" className="w-full sm:w-auto h-16 px-12 bg-[#FE502D] hover:bg-[#75221D] text-white rounded-[5px] text-lg font-black transition-all group shadow-xl shadow-[#FE502D]/20">
               Get Your Free Audit <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="ghost" className="h-16 px-12 text-[#75221D] font-black text-lg hover:bg-[#FDF392]/20 rounded-[5px] group">
+            <Button variant="ghost" className="w-full sm:w-auto h-16 px-12 text-[#75221D] font-black text-lg hover:bg-[#FDF392]/20 hover:text-[#FE502D] rounded-[5px] group">
               View Our Work <ArrowUpRight className="ml-2 w-5 h-5 opacity-0 group-hover:opacity-100 transition-all" />
             </Button>
           </motion.div>

@@ -109,8 +109,8 @@ export function ContactPage() {
                    <label className="text-xs font-black uppercase tracking-widest text-[#75221D]">What's your biggest challenge?</label>
                    <Textarea placeholder="Scaling PPC / Inventory issues / New Listing..." className="min-h-[150px] rounded-[5px] border-none bg-white shadow-sm p-6 text-lg focus-visible:ring-1 focus-visible:ring-[#FE502D]/20" />
                 </div>
-                <Button className="w-full bg-[#75221D] hover:bg-[#FE502D] text-white h-20 rounded-[5px] text-2xl font-black uppercase italic tracking-tighter transition-all shadow-xl">
-                  Send Message <Send className="ml-4 w-6 h-6" />
+                <Button className="w-full bg-[#75221D] hover:bg-[#FE502D] text-white h-16 md:h-20 rounded-[5px] text-xl md:text-2xl font-black uppercase italic tracking-tighter transition-all shadow-xl">
+                  Send Message <Send className="ml-4 w-5 h-5 md:w-6 md:h-6" />
                 </Button>
               </form>
             </motion.div>

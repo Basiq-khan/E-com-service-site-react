@@ -146,9 +146,9 @@ export function AboutUs() {
               Ready to <br /> 
               <span className="text-[#75221D]">Scale?</span>
            </h2>
-           <Link to="/contact">
-             <Button className="bg-white text-[#FE502D] hover:bg-[#75221D] hover:text-white h-20 px-16 rounded-[5px] text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
-                Partner with us <ArrowRight className="ml-4 w-8 h-8" />
+           <Link to="/contact" className="inline-block w-full sm:w-auto">
+             <Button className="w-full sm:w-auto bg-white text-[#FE502D] hover:bg-[#75221D] hover:text-white h-16 md:h-20 px-8 md:px-16 rounded-[5px] text-xl md:text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
+                Partner with us <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
              </Button>
            </Link>
         </div>

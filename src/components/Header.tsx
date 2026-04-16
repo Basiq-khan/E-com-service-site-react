@@ -63,6 +63,8 @@ const platformServices = [
 export function Header() {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
+  const [activeMobilePlatform, setActiveMobilePlatform] = useState<string | null>(null)
   const [activePlatform, setActivePlatform] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
@@ -76,6 +78,8 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false)
     setIsMegaMenuOpen(false)
+    setIsMobileServicesOpen(false)
+    setActiveMobilePlatform(null)
   }, [location])
 
   return (
@@ -276,19 +280,87 @@ export function Header() {
               <div className="space-y-12">
                 <div className="grid grid-cols-1 gap-6">
                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Navigation</p>
-                   {["Home", "Services", "About Us", "Blogs", "Contact"].map((item) => (
-                     <Link 
-                       key={item} 
-                       to={item === "Home" ? "/" : `/${item.toLowerCase().replace(' ', '')}`} 
-                       className="text-5xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors"
-                     >
-                       {item}
-                     </Link>
-                   ))}
+                   {[
+                     { name: "Home", path: "/" },
+                     { name: "Services", path: "/services", isServices: true },
+                     { name: "About us", path: "/about" },
+                     { name: "Blogs", path: "/blog" },
+                     { name: "Contact", path: "/contact" }
+                   ].map((item) => {
+                     if (item.isServices) {
+                       return (
+                         <div key={item.name} className="space-y-6">
+                           <button 
+                             onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                             className="text-5xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors flex items-center justify-between w-full text-left"
+                           >
+                             {item.name}
+                             <ChevronDown className={`w-10 h-10 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                           </button>
+                           
+                           <AnimatePresence>
+                             {isMobileServicesOpen && (
+                               <motion.div 
+                                 initial={{ height: 0, opacity: 0 }}
+                                 animate={{ height: "auto", opacity: 1 }}
+                                 exit={{ height: 0, opacity: 0 }}
+                                 className="overflow-hidden pl-4 space-y-8 mt-6"
+                               >
+                                 {platformServices.map((platform) => (
+                                   <div key={platform.id} className="space-y-4">
+                                     <button 
+                                       onClick={() => setActiveMobilePlatform(activeMobilePlatform === platform.id ? null : platform.id)}
+                                       className="text-3xl font-black text-[#75221D] italic uppercase tracking-tighter flex items-center justify-between w-full"
+                                     >
+                                       <div className="flex items-center gap-4">
+                                         <platform.icon className={`w-8 h-8 ${platform.color}`} />
+                                         {platform.name}
+                                       </div>
+                                       <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${activeMobilePlatform === platform.id ? 'rotate-180' : ''}`} />
+                                     </button>
+                                     
+                                     <AnimatePresence>
+                                       {activeMobilePlatform === platform.id && (
+                                         <motion.div 
+                                           initial={{ height: 0, opacity: 0 }}
+                                           animate={{ height: "auto", opacity: 1 }}
+                                           exit={{ height: 0, opacity: 0 }}
+                                           className="grid grid-cols-1 gap-4 pl-12 border-l-2 border-[#FE502D]/20 overflow-hidden"
+                                         >
+                                           {platform.items.map((service, idx) => (
+                                             <Link
+                                               key={idx}
+                                               to={service.path}
+                                               className="text-xl font-bold text-gray-500 hover:text-[#FE502D] transition-colors uppercase italic tracking-tighter"
+                                             >
+                                               {service.name}
+                                             </Link>
+                                           ))}
+                                         </motion.div>
+                                       )}
+                                     </AnimatePresence>
+                                   </div>
+                                 ))}
+                               </motion.div>
+                             )}
+                           </AnimatePresence>
+                         </div>
+                       )
+                     }
+                     return (
+                       <Link 
+                         key={item.name} 
+                         to={item.path} 
+                         className="text-5xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors"
+                       >
+                         {item.name}
+                       </Link>
+                     )
+                   })}
                 </div>
                 <div className="pt-10 space-y-6">
                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Connect with us</p>
-                   <Button className="w-full bg-[#75221D] text-white h-16 h-18 text-xl font-black italic uppercase tracking-tighter rounded-[5px]">
+                   <Button className="w-full bg-[#75221D] text-white h-16 text-xl font-black italic uppercase tracking-tighter rounded-[5px]">
                       Book Strategy Call
                    </Button>
                 </div>

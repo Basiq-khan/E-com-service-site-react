@@ -37,9 +37,9 @@ export function SEOContentWriting() {
              transition={{ delay: 0.5 }}
              className="mt-12"
            >
-             <Link to="/contact">
-               <Button size="lg" className="bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-16 h-20 rounded-[5px] text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
-                 Draft My Copy <ArrowRight className="ml-4 w-8 h-8" />
+             <Link to="/contact" className="inline-block w-full sm:w-auto">
+               <Button size="lg" className="w-full sm:w-auto bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-8 md:px-16 h-16 md:h-20 rounded-[5px] text-xl md:text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
+                 Draft My Copy <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
                </Button>
              </Link>
            </motion.div>
