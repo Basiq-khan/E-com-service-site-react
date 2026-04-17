@@ -28,22 +28,22 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-32 bg-white overflow-hidden relative">
+    <section className="py-20 md:py-32 bg-white overflow-hidden relative">
       {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-[#FE502D]/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#FDF392]/20 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center mb-20 space-y-6">
-           <h2 className="text-4xl md:text-6xl font-black text-[#75221D] leading-[1.1]">
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-20 space-y-6 px-4 md:px-0">
+           <h2 className="text-[clamp(2.2rem,5vw,3.5rem)] font-black text-[#75221D] leading-[1.1] uppercase italic tracking-tighter">
               Trusted by 500+ <br /> <span className="text-[#FE502D]">Global Brands</span>
            </h2>
-           <p className="text-gray-500 text-xl">
+           <p className="text-gray-500 text-lg md:text-xl leading-relaxed">
               Don't just take our word for it. Hear from the Amazon sellers who have scaled their businesses to new heights with our expertise.
            </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 md:px-0">
           {testimonials.map((item, index) => (
             <motion.div
               key={index}
@@ -61,22 +61,22 @@ export function Testimonials() {
                     <div className="flex gap-1 text-[#FE502D]">
                       {[...Array(item.rating)].map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}
                     </div>
-                    <span className="px-3 py-1 bg-white rounded-[5px] text-[10px] font-black uppercase tracking-widest text-[#75221D]/40">
+                    <span className="px-3 py-1 bg-white rounded-[5px] text-[10px] font-black uppercase tracking-widest text-[#75221D]/40 italic">
                       {item.tag}
                     </span>
                   </div>
 
-                  <p className="text-[#75221D] text-lg font-medium leading-relaxed italic">
+                  <p className="text-[#75221D] text-base md:text-lg font-medium leading-relaxed italic">
                     "{item.text}"
                   </p>
 
                   <div className="flex items-center gap-4 pt-6 border-t border-[#75221D]/5">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#FE502D] to-[#75221D] rounded-[5px] flex items-center justify-center text-white font-black text-2xl shadow-lg transform group-hover:rotate-3 transition-transform">
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#FE502D] to-[#75221D] rounded-[5px] flex items-center justify-center text-white font-black text-xl md:text-2xl shadow-lg transform group-hover:rotate-3 transition-transform">
                       {item.name[0]}
                     </div>
                     <div>
-                      <h4 className="font-black text-[#75221D] text-lg">{item.name}</h4>
-                      <p className="text-sm text-gray-500 font-medium">{item.role}</p>
+                      <h4 className="font-black text-[#75221D] text-lg uppercase italic tracking-tighter leading-none">{item.name}</h4>
+                      <p className="text-xs md:text-sm text-gray-500 font-medium">{item.role}</p>
                     </div>
                   </div>
                 </CardContent>
@@ -86,9 +86,9 @@ export function Testimonials() {
         </div>
 
         {/* Bottom CTA for Testimonials */}
-        <div className="mt-20 text-center">
-           <p className="text-[#75221D]/60 font-bold mb-4">Want to see more results?</p>
-           <a href="#" className="inline-flex items-center gap-2 text-[#FE502D] font-black text-lg hover:underline transition-all">
+        <div className="mt-16 md:mt-20 text-center">
+           <p className="text-[#75221D]/60 font-black italic uppercase tracking-tighter mb-4">Want to see more results?</p>
+           <a href="#" className="inline-flex items-center gap-2 text-[#FE502D] font-black text-lg hover:underline transition-all uppercase italic tracking-tighter">
               View Case Studies →
            </a>
         </div>

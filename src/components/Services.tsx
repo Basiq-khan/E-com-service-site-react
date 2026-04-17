@@ -44,26 +44,26 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-32 bg-gray-50/50">
+    <section className="py-20 md:py-32 bg-gray-50/50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-4 mb-20">
+        <div className="text-center space-y-4 mb-16 md:mb-20">
            <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#FE502D] font-black uppercase tracking-[0.5em] text-xs"
+            className="text-[#FE502D] font-black uppercase tracking-[0.5em] text-[10px] md:text-xs"
            >
              Our Expertise
            </motion.p>
            <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-7xl font-black text-[#75221D] tracking-tighter uppercase italic"
+            className="text-[clamp(2.5rem,6vw,4.5rem)] font-black text-[#75221D] tracking-tighter uppercase italic leading-none"
            >
              Core <span className="text-[#FE502D]">Services.</span>
            </motion.h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -71,12 +71,12 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group bg-white p-10 rounded-[5px] border border-[#75221D]/5 hover:border-[#FE502D]/20 transition-all hover:shadow-2xl hover:-translate-y-2"
+              className="group bg-white p-8 md:p-10 rounded-[5px] border border-[#75221D]/5 hover:border-[#FE502D]/20 transition-all hover:shadow-2xl hover:-translate-y-2"
             >
               <div className="w-16 h-16 bg-gray-50 rounded-[5px] flex items-center justify-center group-hover:bg-[#FE502D] transition-colors duration-500 mb-8">
                 <service.icon className="w-8 h-8 text-[#FE502D] group-hover:text-white transition-colors" />
               </div>
-              <h3 className="text-2xl font-black text-[#75221D] mb-4 uppercase italic tracking-tighter truncate">{service.title}</h3>
+              <h3 className="text-2xl font-black text-[#75221D] mb-4 uppercase italic tracking-tighter">{service.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-8 min-h-[60px]">
                 {service.description}
               </p>

@@ -63,9 +63,9 @@ const platformServices = [
 export function Header() {
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
-  const [activeMobilePlatform, setActiveMobilePlatform] = useState<string | null>(null)
   const [activePlatform, setActivePlatform] = useState<string | null>(null)
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [mobileActivePlatform, setMobileActivePlatform] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
 
@@ -78,23 +78,23 @@ export function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false)
     setIsMegaMenuOpen(false)
-    setIsMobileServicesOpen(false)
-    setActiveMobilePlatform(null)
+    setMobileServicesOpen(false)
+    setMobileActivePlatform(null)
   }, [location])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'h-16 bg-white border-b border-[#75221D]/10' : 'h-24 bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'h-16 bg-white border-b border-[#75221D]/10' : 'h-20 md:h-24 bg-transparent'}`}>
       <div className="container mx-auto px-4 h-full flex items-center justify-between">
         
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-3 group cursor-pointer">
+        <Link to="/" className="flex items-center gap-2 md:gap-3 group cursor-pointer">
           <motion.div 
             whileHover={{ rotate: 12 }}
-            className="w-10 h-10 bg-[#FE502D] rounded-[5px] flex items-center justify-center shadow-lg"
+            className="w-8 h-8 md:w-10 md:h-10 bg-[#FE502D] rounded-[5px] flex items-center justify-center shadow-lg"
           >
-            <span className="text-white font-black text-xl">EP</span>
+            <span className="text-white font-black text-lg md:text-xl">EP</span>
           </motion.div>
-          <span className="font-black text-2xl tracking-tighter text-[#75221D]">EcomPropel</span>
+          <span className="font-black text-xl md:text-2xl tracking-tighter text-[#75221D]">EcomPropel</span>
         </Link>
 
         {/* Center Nav (Desktop) */}
@@ -280,59 +280,70 @@ export function Header() {
               <div className="space-y-12">
                 <div className="grid grid-cols-1 gap-6">
                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Navigation</p>
-                   {[
-                     { name: "Home", path: "/" },
-                     { name: "Services", path: "/services", isServices: true },
-                     { name: "About us", path: "/about" },
-                     { name: "Blogs", path: "/blog" },
-                     { name: "Contact", path: "/contact" }
-                   ].map((item) => {
-                     if (item.isServices) {
-                       return (
-                         <div key={item.name} className="space-y-6">
+                   {["Home", "Services", "About Us", "Blogs", "Contact"].map((item) => {
+                     const isServices = item === "Services"
+                     const path = item === "Home" ? "/" : `/${item.toLowerCase().replace(' ', '')}`
+                     
+                     return (
+                       <div key={item} className="space-y-4">
+                         {isServices ? (
                            <button 
-                             onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                             className="text-5xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors flex items-center justify-between w-full text-left"
+                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                             className="w-full text-left flex items-center justify-between group"
                            >
-                             {item.name}
-                             <ChevronDown className={`w-10 h-10 transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                             <span className={`text-4xl font-black italic uppercase tracking-tighter transition-colors ${mobileServicesOpen ? 'text-[#FE502D]' : 'text-[#75221D]'}`}>
+                               {item}
+                             </span>
+                             <ChevronDown className={`w-8 h-8 text-[#75221D] transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180 text-[#FE502D]' : ''}`} />
                            </button>
-                           
+                         ) : (
+                           <Link 
+                             to={path} 
+                             onClick={() => setIsMobileMenuOpen(false)}
+                             className="text-4xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors block"
+                           >
+                             {item}
+                           </Link>
+                         )}
+
+                         {isServices && (
                            <AnimatePresence>
-                             {isMobileServicesOpen && (
+                             {mobileServicesOpen && (
                                <motion.div 
                                  initial={{ height: 0, opacity: 0 }}
                                  animate={{ height: "auto", opacity: 1 }}
                                  exit={{ height: 0, opacity: 0 }}
-                                 className="overflow-hidden pl-4 space-y-8 mt-6"
+                                 className="overflow-hidden space-y-4 pt-2"
                                >
                                  {platformServices.map((platform) => (
-                                   <div key={platform.id} className="space-y-4">
+                                   <div key={platform.id} className="space-y-2">
                                      <button 
-                                       onClick={() => setActiveMobilePlatform(activeMobilePlatform === platform.id ? null : platform.id)}
-                                       className="text-3xl font-black text-[#75221D] italic uppercase tracking-tighter flex items-center justify-between w-full"
+                                       onClick={() => setMobileActivePlatform(mobileActivePlatform === platform.id ? null : platform.id)}
+                                       className={`w-full flex items-center justify-between p-4 rounded-[5px] transition-all ${mobileActivePlatform === platform.id ? 'bg-[#75221D] text-white' : 'bg-gray-50 text-[#75221D]'}`}
                                      >
-                                       <div className="flex items-center gap-4">
-                                         <platform.icon className={`w-8 h-8 ${platform.color}`} />
-                                         {platform.name}
+                                       <div className="flex items-center gap-3">
+                                         <platform.icon className={`w-5 h-5 ${mobileActivePlatform === platform.id ? 'text-white' : platform.color}`} />
+                                         <span className="font-black italic uppercase tracking-tighter">{platform.name}</span>
                                        </div>
-                                       <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${activeMobilePlatform === platform.id ? 'rotate-180' : ''}`} />
+                                       <ChevronDown className={`w-4 h-4 transition-transform ${mobileActivePlatform === platform.id ? 'rotate-180' : ''}`} />
                                      </button>
-                                     
+
                                      <AnimatePresence>
-                                       {activeMobilePlatform === platform.id && (
+                                       {mobileActivePlatform === platform.id && (
                                          <motion.div 
                                            initial={{ height: 0, opacity: 0 }}
                                            animate={{ height: "auto", opacity: 1 }}
                                            exit={{ height: 0, opacity: 0 }}
-                                           className="grid grid-cols-1 gap-4 pl-12 border-l-2 border-[#FE502D]/20 overflow-hidden"
+                                           className="overflow-hidden pl-4 space-y-2"
                                          >
                                            {platform.items.map((service, idx) => (
                                              <Link
                                                key={idx}
                                                to={service.path}
-                                               className="text-xl font-bold text-gray-500 hover:text-[#FE502D] transition-colors uppercase italic tracking-tighter"
+                                               onClick={() => setIsMobileMenuOpen(false)}
+                                               className="flex items-center gap-3 p-3 text-sm font-bold text-[#75221D] hover:text-[#FE502D] transition-colors bg-gray-50/50 rounded-[5px] uppercase italic tracking-tighter"
                                              >
+                                               <service.icon className="w-4 h-4" />
                                                {service.name}
                                              </Link>
                                            ))}
@@ -344,23 +355,14 @@ export function Header() {
                                </motion.div>
                              )}
                            </AnimatePresence>
-                         </div>
-                       )
-                     }
-                     return (
-                       <Link 
-                         key={item.name} 
-                         to={item.path} 
-                         className="text-5xl font-black text-[#75221D] italic uppercase tracking-tighter hover:text-[#FE502D] transition-colors"
-                       >
-                         {item.name}
-                       </Link>
+                         )}
+                       </div>
                      )
                    })}
                 </div>
                 <div className="pt-10 space-y-6">
                    <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">Connect with us</p>
-                   <Button className="w-full bg-[#75221D] text-white h-16 text-xl font-black italic uppercase tracking-tighter rounded-[5px]">
+                   <Button className="w-full bg-[#75221D] text-white h-16 h-18 text-xl font-black italic uppercase tracking-tighter rounded-[5px]">
                       Book Strategy Call
                    </Button>
                 </div>

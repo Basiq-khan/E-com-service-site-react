@@ -44,7 +44,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-6xl md:text-[100px] font-black leading-[0.9] tracking-tighter text-[#75221D] text-balance"
+              className="text-[clamp(2.5rem,8vw,6.25rem)] font-black leading-[0.9] tracking-tighter text-[#75221D] text-balance"
             >
               WE SCALE <span className="text-[#FE502D]">BRANDS</span> <br /> 
               THROUGH <span className="relative inline-block">
@@ -53,7 +53,7 @@ export function Hero() {
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1, duration: 0.8 }}
-                  className="absolute -bottom-2 left-0 right-0 h-4 bg-[#FDF392] -z-10 origin-left"
+                  className="absolute -bottom-1 md:-bottom-2 left-0 right-0 h-2 md:h-4 bg-[#FDF392] -z-10 origin-left"
                 />
               </span>
             </motion.h1>
@@ -62,7 +62,7 @@ export function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 1 }}
-              className="text-gray-500 text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed"
+              className="text-gray-500 text-lg md:text-2xl max-w-3xl mx-auto leading-relaxed px-4"
             >
               Full-service Amazon management that turns complex data into massive revenue growth. We don't just manage listings — we build legacies.
             </motion.p>
@@ -73,7 +73,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 px-4"
           >
             <Button size="lg" className="w-full sm:w-auto h-16 px-12 bg-[#FE502D] hover:bg-[#75221D] text-white rounded-[5px] text-lg font-black transition-all group shadow-xl shadow-[#FE502D]/20">
               Get Your Free Audit <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

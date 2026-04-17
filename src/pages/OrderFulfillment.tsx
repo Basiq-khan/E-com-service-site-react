@@ -10,24 +10,24 @@ export function OrderFulfillment() {
   return (
     <div className="pt-20">
       {/* Banner Section - 70vh */}
-      <section className="bg-[#75221D] h-[70vh] flex items-center relative overflow-hidden">
+      <section className="bg-[#75221D] min-h-[60vh] md:h-[70vh] flex items-center relative overflow-hidden py-20 md:py-0">
         <motion.div 
           animate={{ x: [0, 50, 0], y: [0, 20, 0] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FE502D]/10 rounded-full blur-[100px]"
+          className="absolute top-0 right-0 w-[400px] md:w-[500px] h-[400px] md:h-[500px] bg-[#FE502D]/10 rounded-full blur-[100px]"
         />
         <div className="container mx-auto px-4 relative z-10 text-center uppercase italic">
            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="inline-block px-6 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-[5px] text-[#FDF392] text-xs font-black tracking-[0.3em] mb-8"
+              className="inline-block px-6 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-[5px] text-[#FDF392] text-[10px] md:text-xs font-black tracking-[0.3em] mb-6 md:mb-8"
            >
               Global Supply Chain
            </motion.div>
            <motion.h1 
              initial={{ opacity: 0, scale: 1.1 }}
              animate={{ opacity: 1, scale: 1 }}
-             className="text-6xl md:text-[120px] font-black text-white leading-[0.85] tracking-tighter"
+             className="text-[clamp(2.5rem,8vw,7.5rem)] font-black text-white leading-[0.85] tracking-tighter"
            >
              LOGISTICS <br /> <span className="text-[#FE502D]">MASTERED.</span>
            </motion.h1>
@@ -35,10 +35,10 @@ export function OrderFulfillment() {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ delay: 0.5 }}
-             className="mt-12"
+             className="mt-10 md:mt-12 px-4"
            >
-             <Link to="/contact" className="inline-block w-full sm:w-auto">
-               <Button size="lg" className="w-full sm:w-auto bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-8 md:px-16 h-16 md:h-20 rounded-[5px] text-xl md:text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
+             <Link to="/contact">
+               <Button size="lg" className="w-full sm:w-auto bg-[#FE502D] hover:bg-white hover:text-[#75221D] text-white px-12 h-16 md:h-20 rounded-[5px] text-xl md:text-2xl font-black transition-all shadow-2xl uppercase italic tracking-tighter">
                  Manage Operations <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
                </Button>
              </Link>
@@ -47,37 +47,37 @@ export function OrderFulfillment() {
       </section>
 
       {/* Section 1: Image Left, Text Right */}
-      <section className="py-32 bg-white relative overflow-hidden">
+      <section className="py-20 md:py-32 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-24">
+          <div className="flex flex-col lg:flex-row items-center gap-12 md:gap-24">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="lg:w-1/2"
+              className="w-full lg:w-1/2"
             >
-              <div className="relative group">
-                  <div className="absolute -inset-4 bg-[#75221D] rounded-[5px] -z-10 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
-                  <img src={serviceSeo} alt="Fulfillment" className="relative rounded-[5px] shadow-2xl border border-gray-100 z-10 transition-transform duration-700 group-hover:scale-105" />
+              <div className="relative group px-4 md:px-0">
+                  <div className="absolute -inset-2 md:-inset-4 bg-[#75221D] rounded-[5px] -z-10 transition-transform group-hover:translate-x-2 md:group-hover:translate-x-4 group-hover:translate-y-2 md:group-hover:translate-y-4 duration-500"></div>
+                  <img src={serviceSeo} alt="Fulfillment" className="w-full h-auto relative rounded-[5px] shadow-2xl border border-gray-100 z-10 transition-transform duration-700 group-hover:scale-105" />
               </div>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="lg:w-1/2 space-y-12"
+              className="w-full lg:w-1/2 space-y-8 md:space-y-12 px-4 md:px-0"
             >
-               <h2 className="text-5xl font-black text-[#75221D] leading-tight uppercase italic tracking-tighter">
+               <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-[#75221D] leading-tight uppercase italic tracking-tighter">
                   STREAMLINED <br /> <span className="text-[#FE502D]">FBA PIPELINE</span>
                </h2>
-               <div className="space-y-10">
+               <div className="space-y-8 md:space-y-10">
                   {[
                     { title: "FBA Prep & Labelling", desc: "We ensure 100% compliance with Amazon's strict prep and labelling requirements global." },
                     { title: "Inventory Forecasting", desc: "Stop losing sales to 'Out of Stock' badges with our data-driven supply chain planning." },
                     { title: "Return Processing", desc: "Hassle-free management of returns, quality checks, and inventory reintegration pipeline." }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-6 border-l-4 border-[#FE502D] pl-8">
+                    <div key={i} className="flex items-start gap-4 md:gap-6 border-l-4 border-[#FE502D] pl-6 md:pl-8">
                        <div>
-                          <h4 className="font-black text-[#75221D] text-2xl uppercase italic tracking-tighter">{item.title}</h4>
-                          <p className="text-gray-500 text-lg mt-2 leading-relaxed">{item.desc}</p>
+                          <h4 className="font-black text-[#75221D] text-xl md:text-2xl uppercase italic tracking-tighter leading-tight">{item.title}</h4>
+                          <p className="text-gray-500 text-base md:text-lg mt-2 leading-relaxed">{item.desc}</p>
                        </div>
                     </div>
                   ))}
@@ -88,37 +88,37 @@ export function OrderFulfillment() {
       </section>
 
       {/* Section 2: Image Right, Text Left */}
-      <section className="py-32 bg-[#75221D] text-white">
+      <section className="py-20 md:py-32 bg-[#75221D] text-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row-reverse items-center gap-24">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12 md:gap-24">
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="lg:w-1/2"
+              className="w-full lg:w-1/2"
             >
-               <div className="relative group">
-                  <div className="absolute -inset-4 bg-[#FDF392]/20 rounded-[5px] -z-10 transition-transform group-hover:translate-x-4 group-hover:translate-y-4 duration-500"></div>
-                  <img src={serviceAds} alt="Global Logistics" className="relative rounded-[5px] shadow-2xl border border-white/10 z-10 transition-transform duration-700 group-hover:scale-105" />
+               <div className="relative group px-4 md:px-0">
+                  <div className="absolute -inset-2 md:-inset-4 bg-[#FDF392]/20 rounded-[5px] -z-10 transition-transform group-hover:translate-x-2 md:group-hover:translate-x-4 group-hover:translate-y-2 md:group-hover:translate-y-4 duration-500"></div>
+                  <img src={serviceAds} alt="Global Logistics" className="w-full h-auto relative rounded-[5px] shadow-2xl border border-white/10 z-10 transition-transform duration-700 group-hover:scale-105" />
                </div>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="lg:w-1/2 space-y-12"
+              className="w-full lg:w-1/2 space-y-8 md:space-y-12 px-4 md:px-0"
             >
-               <h2 className="text-5xl font-black text-white leading-tight uppercase italic tracking-tighter">
+               <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-black text-white leading-tight uppercase italic tracking-tighter">
                   SEAMLESS <br /> <span className="text-[#FDF392]">3PL NETWORKS</span>
                </h2>
-               <div className="space-y-10">
+               <div className="space-y-8 md:space-y-10">
                   {[
                     { title: "Cross-Border Logistics", desc: "Navigating international shipping, customs, and global distribution hurdles flawlessly." },
                     { title: "Warehouse Management", desc: "Secure storage and real-time inventory tracking across regional nodes worldwide." },
-                    { title: "Cost Optimization", icon: DollarSign, desc: "Carrier negotiation and routing optimization to maximize your physical profit margins." }
+                    { title: "Cost Optimization", desc: "Carrier negotiation and routing optimization to maximize your physical profit margins." }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-start gap-6 border-l-4 border-[#FDF392] pl-8">
+                    <div key={i} className="flex items-start gap-4 md:gap-6 border-l-4 border-[#FDF392] pl-6 md:pl-8">
                        <div>
-                          <h4 className="font-black text-white text-2xl uppercase italic tracking-tighter">{item.title}</h4>
-                          <p className="text-white/40 text-lg mt-2 leading-relaxed">{item.desc}</p>
+                          <h4 className="font-black text-white text-xl md:text-2xl uppercase italic tracking-tighter leading-tight">{item.title}</h4>
+                          <p className="text-white/40 text-base md:text-lg mt-2 leading-relaxed">{item.desc}</p>
                        </div>
                     </div>
                   ))}
@@ -129,21 +129,21 @@ export function OrderFulfillment() {
       </section>
 
       {/* 4 Card Section (Middle Template) */}
-      <section className="py-32 bg-white">
+      <section className="py-20 md:py-32 bg-white overflow-hidden">
         <div className="container mx-auto px-4">
            {/* Section Header */}
-           <div className="text-center mb-24 space-y-6">
+           <div className="text-center mb-16 md:mb-24 space-y-4 md:space-y-6">
               <motion.p 
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
-                className="text-[#FE502D] font-black uppercase tracking-[0.5em] text-xs"
+                className="text-[#FE502D] font-black uppercase tracking-[0.5em] text-[10px] md:text-xs"
               >
                 Ops Architecture
               </motion.p>
-              <h2 className="text-5xl md:text-8xl font-black text-[#75221D] tracking-tighter uppercase italic">SUPPLY CHAIN <span className="text-[#FE502D]">EXCELLENCE.</span></h2>
+              <h2 className="text-[clamp(2.5rem,6vw,5.5rem)] font-black text-[#75221D] tracking-tighter uppercase italic leading-none">SUPPLY CHAIN <span className="text-[#FE502D]">EXCELLENCE.</span></h2>
            </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mb-16 md:mb-20 px-4 md:px-0">
               {[
                 { title: "Global Reach", desc: "Seamless cross-border shipping and international fulfillment infrastructure.", icon: Globe },
                 { title: "Real-Time Tracking", desc: "Full visibility into your inventory levels and order statuses.", icon: BarChart },
@@ -155,7 +155,7 @@ export function OrderFulfillment() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-10 bg-gray-50 border border-gray-100 rounded-[5px] hover:bg-[#75221D] group transition-all duration-500 h-full"
+                  className="p-8 md:p-10 bg-gray-50 border border-gray-100 rounded-[5px] hover:bg-[#75221D] group transition-all duration-500 h-full"
                 >
                    <div className="w-16 h-16 bg-white rounded-[5px] flex items-center justify-center mb-8 border border-gray-100 group-hover:bg-[#FE502D] transition-colors duration-500 shadow-sm">
                       <card.icon className="w-8 h-8 text-[#FE502D] group-hover:text-white transition-colors" />
@@ -166,9 +166,9 @@ export function OrderFulfillment() {
               ))}
            </div>
 
-           <div className="text-center">
-             <Link to="/contact" className="inline-block w-full sm:w-auto">
-                <Button className="w-full sm:w-auto bg-[#75221D] text-white hover:bg-[#FE502D] h-16 md:h-20 px-8 md:px-16 rounded-[5px] text-xl md:text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
+           <div className="text-center px-4">
+             <Link to="/contact">
+                <Button className="w-full sm:w-auto bg-[#75221D] text-white hover:bg-[#FE502D] h-16 md:h-20 px-12 md:px-16 rounded-[5px] text-xl md:text-2xl font-black uppercase italic tracking-tighter transition-all shadow-2xl">
                   Optimize My Shipping <ArrowRight className="ml-4 w-6 h-6 md:w-8 md:h-8" />
                 </Button>
              </Link>
